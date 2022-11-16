@@ -5,7 +5,7 @@ SongInfo::SongInfo()
 	Disco = "";
 	Nombre = "";
 	Artista = "";
-	Ruta = nullptr;
+	//Ruta = nullptr;
 }
 
 void SongInfo::setNombre(std::string _Nombre)

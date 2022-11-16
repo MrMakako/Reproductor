@@ -7,10 +7,15 @@
 Genero::Genero(std::string nombre, std::string descripcion)
 {
 
+	this->nombre = nombre;
+	
 
 
 
 
+}
 
+Genero::Genero()
+{
 }
 

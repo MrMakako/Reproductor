@@ -8,9 +8,9 @@
 #include "string"
 
 
-#include "GeneroFile.h"
 
-class Genero : public GeneroFile {
+
+class Genero  {
 
     private:
         std::string nombre;
@@ -19,6 +19,7 @@ class Genero : public GeneroFile {
 
     public:
         Genero(std::string nombre, std::string descripcion);
+        Genero();
      /*  
         std::string getNombre();
         std::string getDescripcion();
