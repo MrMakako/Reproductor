@@ -27,7 +27,7 @@ void TDAArchivo::cerrar() {
 	if (!Archivo.is_open()) {
 		cout << "El Archivo se cerro!!!\n";
 	}
-	 
+
 
 }
 
@@ -38,6 +38,10 @@ void TDAArchivo::abrir() {
 	if (Archivo) {
 		cout << "Archivo Encontrado!\n";
 
+	}
+	else {
+		cout << "No se eonctro o no se pudo abrir el archivo!!!\n";
+	
 	}
 
 
