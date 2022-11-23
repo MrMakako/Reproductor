@@ -8,12 +8,22 @@ int main() {
 
 	
 
-	GeneroFile f = GeneroFile("sd.ed");
+	GeneroFile * f = new GeneroFile("Gen.gn");
 
-	f.abrir();
+	f->abrir();
 
-	f.cerrar();
 
+
+
+	f->agregarGenero(new Genero("Rock", ""));
+	f->agregarGenero(new Genero("Jazz", ""));
+	f->agregarGenero(new Genero("Blues", ""));
+
+	f->Escribir();
+	f->cerrar();
+
+
+	delete f;
 
 
 }

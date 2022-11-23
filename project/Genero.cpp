@@ -19,3 +19,8 @@ Genero::Genero()
 {
 }
 
+std::string Genero::getNombre()
+{
+	return nombre;
+}
+

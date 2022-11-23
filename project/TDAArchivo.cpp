@@ -24,7 +24,7 @@ TDAArchivo::TDAArchivo(const char* Nombre)
 void TDAArchivo::cerrar() {
 	
 	Archivo.close();
-	if (!Archivo.is_open()) {
+	if (Archivo.is_open()) {
 		cout << "El Archivo se cerro!!!\n";
 	}
 
@@ -34,14 +34,18 @@ void TDAArchivo::cerrar() {
 void TDAArchivo::abrir() {
 
 
-	Archivo = fstream(Nombre_Archivo, ios::in);
-	if (Archivo) {
+	Archivo = fstream(Nombre_Archivo.c_str(), ios::in);
+	Archivo.open(Nombre_Archivo.c_str(),ios::in);
+	if (Archivo.is_open()) {
 		cout << "Archivo Encontrado!\n";
 
 	}
 	else {
 		cout << "No se eonctro o no se pudo abrir el archivo!!!\n";
-	
+
+
+		Archivo = fstream(Nombre_Archivo.c_str(), ios::out);
+		Archivo.close();
 	}
 
 
