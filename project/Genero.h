@@ -18,6 +18,7 @@ class Genero  {
    //     std::string descripcion;
 
     public:
+       
         Genero(std::string nombre, std::string descripcion);
         Genero();
         std::string getNombre();

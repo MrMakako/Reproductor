@@ -2,7 +2,10 @@
 
 #include <iostream>
 #include "GeneroFile.h"
+
+
 using namespace std;
+
 
 int main() {
 
@@ -14,12 +17,16 @@ int main() {
 
 
 
+	
+                   // str1 == "Jane,GoodbyeWorld!"
+
 
 	f->agregarGenero(new Genero("Rock", ""));
 	f->agregarGenero(new Genero("Jazz", ""));
 	f->agregarGenero(new Genero("Blues", ""));
 
 	f->Escribir();
+	f->Leer();
 	f->cerrar();
 
 

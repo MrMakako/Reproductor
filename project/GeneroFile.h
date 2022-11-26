@@ -7,6 +7,8 @@
 #include "TDAArchivo.h"
 #include <vector>
 
+#include<assert.h>
+#include <boost/algorithm/string/trim.hpp>
 #include <fstream> 
 using namespace std;
 #ifndef GENERO_FILE_H
@@ -25,7 +27,7 @@ public:
 	GeneroFile(std::string Ruta);
 
 	vector<Genero*> generos;
-	string dato = "";
+	string dato;
 
 
 	//Metodos Heredados

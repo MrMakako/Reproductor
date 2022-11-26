@@ -53,12 +53,7 @@ bool GeneroFile::Escribir()
 
 
 		Archivo.write(buffer.data(), buffer.size());
-
-	/*	int dato_size = dato.size();
-	    for (int i = 0; i <(SIZE_NOMBRE-size); i++) {
-			dato += " ";
-		}
-	*/
+	
 	
 		return true;
 	
@@ -74,13 +69,47 @@ bool GeneroFile::Escribir()
 
 bool GeneroFile::Leer()
 {
+	cerrar();
+	(Archivo.open(Nombre_Archivo, ios::in));
 
-	Archivo.open(Nombre_Archivo, ios::in);
+	if (!Archivo.is_open()) {
+		cout << "No se pudo leer";
+		return false;
+	}
+
+	generos.clear();
+	cout << "se pudo leer";
+	char* buffer=new char[SIZE_NOMBRE];
+	while (Archivo.read(buffer,SIZE_NOMBRE)) {
+	
+		//Obtner el nombre
+
+	
+		dato = buffer;
+		dato=boost::trim_right_copy(dato);
+		cout << "Estos son los datos recolectados\n";
+		cout <<"-" << dato << "-" << endl;
+		
+
+
+
+	
+	
+	
+	
+	}
 
 
 
 
-	return false;
+
+
+	return true;
+
+	//Leer
+
+
+
 
 
 }
