@@ -29,7 +29,7 @@ int main() {
 	f->Leer();
 	f->cerrar();
 
-
+	while (true);
 	delete f;
 
 

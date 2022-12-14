@@ -6,9 +6,6 @@
 #include "Genero.h"
 #include "TDAArchivo.h"
 #include <vector>
-
-#include<assert.h>
-#include <boost/algorithm/string/trim.hpp>
 #include <fstream> 
 using namespace std;
 #ifndef GENERO_FILE_H

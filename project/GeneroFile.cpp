@@ -38,9 +38,12 @@ bool GeneroFile::Escribir()
 			
 			Genero* _genero= dynamic_cast<Genero*>( generos[i]);
 			if (_genero) {
+
 				dato = generos[i]->getNombre();
+				
 				string dato_truncado = dato.substr(0, SIZE_NOMBRE);
-				dato_truncado.append(SIZE_NOMBRE - dato_truncado.size(), ' ');
+
+				dato_truncado.append(SIZE_NOMBRE - dato_truncado.size(),' ');
 				buffer += dato_truncado;
 
 			
@@ -53,6 +56,7 @@ bool GeneroFile::Escribir()
 
 
 		Archivo.write(buffer.data(), buffer.size());
+		Archivo.close();
 	
 	
 		return true;
@@ -70,7 +74,8 @@ bool GeneroFile::Escribir()
 bool GeneroFile::Leer()
 {
 	cerrar();
-	(Archivo.open(Nombre_Archivo, ios::in));
+	ifstream Archivo;
+	Archivo.open(Nombre_Archivo);
 
 	if (!Archivo.is_open()) {
 		cout << "No se pudo leer";
@@ -79,16 +84,27 @@ bool GeneroFile::Leer()
 
 	generos.clear();
 	cout << "se pudo leer";
-	char* buffer=new char[SIZE_NOMBRE];
-	while (Archivo.read(buffer,SIZE_NOMBRE)) {
+	//Este codifgo se usa para leer por bloques dado, algunos algoritmos generan errores de escritura entre computadores
+	//Este es el metodo mas seguro pero menos eficiente....usar char * buffer=new char[20]; intruduce caracteres erroneos sobrepasando
+	//la capacidad del buffer dependiendo la computadora.
+	vector<char> buffer(20, 0);
+
+
+	while (Archivo.read(&buffer[0], SIZE_NOMBRE)) {
 	
 		//Obtner el nombre
+		//Limpiamos
+		dato = "";
+		for (int i = 0; i < buffer.size();i++) {
+			if (buffer[i] != ' ') {
+				dato += buffer[i];
+			}
+			
+		}
 
-	
-		dato = buffer;
-		dato=boost::trim_right_copy(dato);
+
 		cout << "Estos son los datos recolectados\n";
-		cout <<"-" << dato << "-" << endl;
+		cout <<"-" <<dato<< "-" << endl;
 		
 
 
@@ -100,7 +116,7 @@ bool GeneroFile::Leer()
 	}
 
 
-
+	Archivo.close();
 
 
 
