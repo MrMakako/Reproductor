@@ -52,3 +52,10 @@ void TDAArchivo::abrir() {
 
 
 }
+
+string TDAArchivo::TruncarDatoCode(string Dato, int Size)
+{
+
+	Dato.insert(0, Size - Dato.size(), '0');
+	return Dato.substr(0, Size);
+}

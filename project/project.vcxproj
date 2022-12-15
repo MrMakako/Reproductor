@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="GeneroFile.h" />
     <ClInclude Include="Genero.h" />
+    <ClInclude Include="I_CodeReader.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Playlist.h" />
     <ClInclude Include="PlaylistFile.h" />
@@ -145,6 +146,7 @@
   <ItemGroup>
     <ClCompile Include="Genero.cpp" />
     <ClCompile Include="GeneroFile.cpp" />
+    <ClCompile Include="I_CodeReader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Playlist.cpp" />
@@ -155,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

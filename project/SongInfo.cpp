@@ -8,6 +8,16 @@ SongInfo::SongInfo()
 	//Ruta = nullptr;
 }
 
+SongInfo::SongInfo(string nombre, string Disco, string Artista, string Ruta, int genIndex)
+{
+	this->Nombre = nombre;
+	this->Artista = Artista;
+	this->Disco = Disco;
+	this->Ruta = Ruta;
+	this->GenIndex = genIndex;
+	
+}
+
 void SongInfo::setNombre(std::string _Nombre)
 {	
 
@@ -40,7 +50,20 @@ std::string SongInfo::getArtista()
 	return Artista;
 }
 
+std::string SongInfo::getGenIndex()
+{
+	return std::to_string(GenIndex);
+}
+
+Genero SongInfo::getGenero()
+{
+	return Genero();
+}
+
 const char* SongInfo::getRuta()
 {
 	return Ruta.c_str();
 }
+
+
+

@@ -3,7 +3,7 @@
 #include <iostream>
 #include "GeneroFile.h"
 
-
+#include "SongInfoFile.h"
 using namespace std;
 
 
@@ -11,9 +11,14 @@ int main() {
 
 	
 
-	GeneroFile * f = new GeneroFile("Gen.gn");
+//	GeneroFile * f = new GeneroFile("Gen.gn");
+	SongInfoFile* s = new SongInfoFile();
+	
+	//f->abrir();
+	s->abrir();
 
-	f->abrir();
+	s->GuardarCancion( SongInfo("Back in Blac","Hell","AC/DC","BackInBlac.mp3",1));
+
 
 
 
@@ -21,16 +26,22 @@ int main() {
                    // str1 == "Jane,GoodbyeWorld!"
 
 
-	f->agregarGenero(new Genero("Rock", ""));
-	f->agregarGenero(new Genero("Jazz", ""));
-	f->agregarGenero(new Genero("Blues", ""));
+//	f->agregarGenero(new Genero(" ", ""));
 
-	f->Escribir();
-	f->Leer();
-	f->cerrar();
+//	f->agregarGenero(new Genero("Jazz", ""));
+//	f->agregarGenero(new Genero("Blues", ""));
+	s->escribir();
+
+	s->leer();
+	///f->Escribir();
+	//s->escribir();
+
+	//f->Leer();
+	//f->cerrar();
+	s->cerrar();
 
 	while (true);
-	delete f;
+	//delete f;
 
 
 }

@@ -29,7 +29,7 @@ public:
 
 	//Metodos Heredados
 	void escribir();
-
+	string ObtenerGenero(int index);
 	void leer();
 	 bool Escribir();
 	 bool Leer();
