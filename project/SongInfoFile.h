@@ -42,7 +42,9 @@ public:
     void readSongInfo(string line, SongInfo *songInfo);
     void escribir() override;
     void GuardarCancion(SongInfo Cancion);
+    
     SongInfo ObtenerSongInfo(int index);
+    
   
 
     void leer() override;
