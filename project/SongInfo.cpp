@@ -55,9 +55,14 @@ std::string SongInfo::getGenIndex()
 	return std::to_string(GenIndex);
 }
 
-Genero SongInfo::getGenero()
+void SongInfo::setGenero(Genero* Gen)
 {
-	return Genero();
+	genero = Gen;
+}
+
+Genero *SongInfo::getGenero()
+{
+	return genero;
 }
 
 const char* SongInfo::getRuta()

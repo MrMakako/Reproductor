@@ -132,12 +132,12 @@ SongInfo SongInfoFile::ObtenerSongInfo(int index)
     //Este codifgo se usa para leer por bloques dado, algunos algoritmos generan errores de escritura entre computadores
     //Este es el metodo mas seguro pero menos eficiente....usar char * buffer=new char[20]; intruduce caracteres erroneos sobrepasando
     //la capacidad del buffer dependiendo la computadora.
-    vector<char> buffer(MAX_SIZE, 0);
+    vector<char> buffer(MAX_SIZE,0);
     GeneroFile* gen_F = new GeneroFile();
     gen_F->abrir();
-
+    SongInfo Song;
     int i = 0;
-
+    Archivo.seekg(index*MAX_SIZE);
     if (Archivo.read(&buffer[0], MAX_SIZE)) {
 
         //Obtner el nombre
@@ -146,15 +146,24 @@ SongInfo SongInfoFile::ObtenerSongInfo(int index)
         for (int i = 0; i < buffer.size(); i++) {
             //  if (buffer[i] != ' ') {
             dato += buffer[i];
-            // }
+            //` }
 
         }
-        string GenIndex = dato.substr(MAX_SIZE - GEN_CODE, MAX_SIZE);
-
-        string gen = gen_F->ObtenerGenero(std::stoi(GenIndex));
+        //Vamos a contruir un songIngo//--//--//--//--//--//-//-//-//-//-//\\//\\//\\
 
 
-        cout << dato.substr(0, MAX_SIZE - GEN_CODE) << "Genero:" << gen << endl;
+        string A_Nombre=dato.substr(REGIS_SIZE,REGIS_SIZE*2);
+        string A_FileDir = dato.substr(0, REGIS_SIZE);
+        string A_Disco = dato.substr(REGIS_SIZE * 3, REGIS_SIZE * 4);
+        string A_Artista = dato.substr(REGIS_SIZE * 2, REGIS_SIZE * 3);
+        string A_Genero = dato.substr(MAX_SIZE-GEN_CODE, REGIS_SIZE + GEN_CODE);
+
+        Song = SongInfo(A_Nombre,A_Disco,A_Artista,A_FileDir,std::stoi(A_Genero));
+        
+
+/ 
+
+    //    cout << dato.substr(0, MAX_SIZE - GEN_CODE) << "Genero:" << << endl;
         i++;
 
 

@@ -16,8 +16,9 @@ public:
 	std::string getDisco();
 	std::string getArtista();
 	std::string getGenIndex();
+	void setGenero(Genero* Gen);
+	Genero* getGenero();
 
-	Genero getGenero();
 	const char* getRuta();
 
 
@@ -28,6 +29,7 @@ private:
 	std::string Disco;
 	std::string Artista;
 	std::string Ruta;
+	Genero *genero;
 	int GenIndex;
 	//El genero de la cancion es el unico que tendra un registro fijo
 

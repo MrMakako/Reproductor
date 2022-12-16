@@ -43,6 +43,7 @@ public:
     void escribir() override;
     void GuardarCancion(SongInfo Cancion);
     SongInfo ObtenerSongInfo(int index);
+  
 
     void leer() override;
     SongInfoFile();
