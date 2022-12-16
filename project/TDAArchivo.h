@@ -8,11 +8,12 @@
 #include "string"
 #include <iostream>
 #include "fstream"
+#include"I_CodeReader.h"
 using namespace std;
 
 
 
-class TDAArchivo {
+class TDAArchivo:public I_CodeReader{
 
     
     protected:
@@ -29,6 +30,15 @@ class TDAArchivo {
         TDAArchivo(const char* Nombre_Archivo);
         void cerrar();
         void abrir();
+        /// <summary>
+        /// //
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+
+        std::string RemoveSpaces(std::string data);
+        string TruncarDatoCode(string Dato, int Size);
+        //Esta funcion sera principalmente usada para todas los registros
         virtual void escribir() = 0;
         virtual void leer() = 0;
 };

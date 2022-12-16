@@ -39,6 +39,9 @@
     <ClInclude Include="GeneroFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="I_CodeReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Object.cpp">
@@ -68,10 +71,16 @@
     <ClCompile Include="GeneroFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="I_CodeReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="ClassDiagram1.cd">
+      <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
 </Project>

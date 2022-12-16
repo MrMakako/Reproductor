@@ -52,3 +52,24 @@ void TDAArchivo::abrir() {
 
 
 }
+
+std::string TDAArchivo::RemoveSpaces(std::string data)
+{
+	string NewData = "";
+	for (int i = 0; i < data.size(); i++) {
+		if (data[i] != ' ') {
+		
+			NewData += data[i];
+		}
+	
+	}
+
+	return NewData;
+}
+
+string TDAArchivo::TruncarDatoCode(string Dato, int Size)
+{
+
+	Dato.insert(0, Size - Dato.size(), '0');
+	return Dato.substr(0, Size);
+}
