@@ -17,11 +17,12 @@ int main() {
 	//f->abrir();
 	s->abrir();
 
-	s->GuardarCancion( SongInfo("Back in Blac","Hell","AC/DC","BackInBlac.mp3",1));
+	//s->GuardarCancion( SongInfo("Back in Blac","Hell","AC/DC","BackInBlac.mp3",1));
 
 
-
-
+	SongInfo Song =s->ObtenerSongInfo(0);
+	
+	cout << Song.getNombre() << "--Artista : " << Song.getArtista() << "---Genero: " << Song.getGenero()->getNombre() << "--Disco: " << Song.getDisco() << "---FileDir: " << Song.getRuta() << "\n";
 	
                    // str1 == "Jane,GoodbyeWorld!"
 
@@ -30,9 +31,9 @@ int main() {
 
 //	f->agregarGenero(new Genero("Jazz", ""));
 //	f->agregarGenero(new Genero("Blues", ""));
-	s->escribir();
+	//s->escribir();
 
-	s->leer();
+	///s->leer();
 	///f->Escribir();
 	//s->escribir();
 

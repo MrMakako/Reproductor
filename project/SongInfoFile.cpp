@@ -144,28 +144,28 @@ SongInfo SongInfoFile::ObtenerSongInfo(int index)
         //Limpiamos
         dato = "";
         for (int i = 0; i < buffer.size(); i++) {
-            //  if (buffer[i] != ' ') {
+       
             dato += buffer[i];
             //` }
 
         }
         //Vamos a contruir un songIngo//--//--//--//--//--//-//-//-//-//-//\\//\\//\\
+       
 
-
-        string A_Nombre=dato.substr(REGIS_SIZE,REGIS_SIZE*2);
-        string A_FileDir = dato.substr(0, REGIS_SIZE);
-        string A_Disco = dato.substr(REGIS_SIZE * 3, REGIS_SIZE * 4);
-        string A_Artista = dato.substr(REGIS_SIZE * 2, REGIS_SIZE * 3);
-        string A_Genero = dato.substr(MAX_SIZE-GEN_CODE, REGIS_SIZE + GEN_CODE);
+        cout << dato<<endl;
+        
+        string A_Nombre = RemoveSpaces(dato.substr(REGIS_SIZE, REGIS_SIZE));
+        string A_FileDir = RemoveSpaces(dato.substr(0, REGIS_SIZE));
+        string A_Disco = RemoveSpaces(dato.substr(REGIS_SIZE * 3, REGIS_SIZE ));
+        string A_Artista = RemoveSpaces(dato.substr(REGIS_SIZE * 2, REGIS_SIZE ));
+        string A_Genero = RemoveSpaces(dato.substr(MAX_SIZE-GEN_CODE,GEN_CODE));
 
         Song = SongInfo(A_Nombre,A_Disco,A_Artista,A_FileDir,std::stoi(A_Genero));
-        
-
-/ 
+        Song.setGenero(new Genero(gen_F->ObtenerGenero(std::stoi(A_Genero)),""));
 
     //    cout << dato.substr(0, MAX_SIZE - GEN_CODE) << "Genero:" << << endl;
         i++;
-
+        return Song;
 
 
 

@@ -16,6 +16,8 @@ public:
 	std::string getDisco();
 	std::string getArtista();
 	std::string getGenIndex();
+
+	//
 	void setGenero(Genero* Gen);
 	Genero* getGenero();
 
