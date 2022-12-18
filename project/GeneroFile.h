@@ -28,9 +28,9 @@ public:
 
 
 	//Metodos Heredados
-	void escribir();
+	void escribir() override;
 	string ObtenerGenero(int index);
-	void leer();
+	void leer() override;
 	 bool Escribir();
 	 bool Leer();
 	//Metodo de clase para agregar genero

@@ -51,7 +51,7 @@ void SongInfoFile::readSongInfo(string line, SongInfo *songInfo) {
 void SongInfoFile::escribir()
 {
 
-    Archivo = fstream(Nombre_Archivo.c_str(), ios::out);
+    Archivo = fstream(Nombre_Archivo.c_str(), ios::out|ios::app);
     if (Archivo.is_open()) {
 
         //necsitamos buffer	
@@ -87,11 +87,13 @@ void SongInfoFile::escribir()
         }
 
 
-        Archivo.write(buffer.data(), buffer.size());
+    //    Archivo.write(buffer.data(), buffer.size());
+        Archivo << buffer.data();
         Archivo.close();
 
 
-     
+
+        ListaCanciones.clear();
 
 
 
@@ -178,7 +180,6 @@ SongInfo SongInfoFile::ObtenerSongInfo(int index)
     Archivo.close();
 
 
-
     return SongInfo();
 }
 
@@ -195,7 +196,7 @@ void SongInfoFile::leer()
     }
 
     ListaCanciones.clear();
-    cout << "se pudo leer\n";
+
     //Este codifgo se usa para leer por bloques dado, algunos algoritmos generan errores de escritura entre computadores
     //Este es el metodo mas seguro pero menos eficiente....usar char * buffer=new char[20]; intruduce caracteres erroneos sobrepasando
     //la capacidad del buffer dependiendo la computadora.
@@ -204,7 +205,8 @@ void SongInfoFile::leer()
     gen_F->abrir();
 
     int i = 0;
- 
+    cout << "Estas son las Canciones:\n";
+    cout << "Codigo:------------Directorio-------------------Nombre  Black-----------------Artista-----------------------Album-------------------------Genero---- \n";
     while (Archivo.read(&buffer[0],MAX_SIZE)) {
 
         //Obtner el nombre
@@ -221,7 +223,7 @@ void SongInfoFile::leer()
         string gen=gen_F->ObtenerGenero(std::stoi(GenIndex));
 
 
-        cout << dato.substr(0,MAX_SIZE-GEN_CODE)<<"Genero:"<<gen << endl;
+        cout << "Codigo: " << i<<"          " << dato.substr(0, MAX_SIZE - GEN_CODE) << "Genero:" << gen << endl;
         i++;
 
 
