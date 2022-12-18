@@ -18,16 +18,24 @@ GeneroFile::GeneroFile(std::string Nombre_Archivo) :TDAArchivo(Nombre_Archivo.c_
 
 void GeneroFile::escribir()
 {
+
+	Escribir();
+	generos.clear();
 }
 
 void GeneroFile::leer()
 {
+	
+	Leer();
+
+
+
 }
 
 bool GeneroFile::Escribir()
 {
 
-	Archivo = fstream(Nombre_Archivo.c_str(),ios::out);
+	Archivo = fstream(Nombre_Archivo.c_str(),ios::out|ios::app);
 	if (Archivo.is_open()) {
 		
 		//necsitamos buffer	
@@ -58,6 +66,7 @@ bool GeneroFile::Escribir()
 
 
 		Archivo.write(buffer.data(), buffer.size());
+		
 		Archivo.close();
 	
 	
@@ -159,7 +168,7 @@ string GeneroFile::ObtenerGenero(int index)
 	//la capacidad del buffer dependiendo la computadora.
 	vector<char> buffer(SIZE_NOMBRE, 0);
 	int i = 0;
-	cout << "Estos son los Generos\n";
+
 	Archivo.seekg(SIZE_NOMBRE * index);
 	//Nos posicionamos en el bloque queremos leer de forma que no tnemos que iterar genero por genero.
 	if (Archivo.read(&buffer[0], SIZE_NOMBRE)) {
