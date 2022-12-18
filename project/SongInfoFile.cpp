@@ -130,7 +130,7 @@ SongInfo SongInfoFile::ObtenerSongInfo(int index)
     }
 
     ListaCanciones.clear();
-    cout << "se pudo leer\n";
+
     //Este codifgo se usa para leer por bloques dado, algunos algoritmos generan errores de escritura entre computadores
     //Este es el metodo mas seguro pero menos eficiente....usar char * buffer=new char[20]; intruduce caracteres erroneos sobrepasando
     //la capacidad del buffer dependiendo la computadora.
@@ -206,7 +206,7 @@ void SongInfoFile::leer()
 
     int i = 0;
     cout << "Estas son las Canciones:\n";
-    cout << "Codigo:------------Directorio-------------------Nombre  Black-----------------Artista-----------------------Album-------------------------Genero---- \n";
+    cout << "Codigo:------------Directorio-------------------Nombre------------------------Artista-----------------------Album-------------------------Genero---- \n";
     while (Archivo.read(&buffer[0],MAX_SIZE)) {
 
         //Obtner el nombre

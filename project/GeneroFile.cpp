@@ -94,7 +94,7 @@ bool GeneroFile::Leer()
 	}
 
 	generos.clear();
-	cout << "se pudo leer";
+
 	//Este codifgo se usa para leer por bloques dado, algunos algoritmos generan errores de escritura entre computadores
 	//Este es el metodo mas seguro pero menos eficiente....usar char * buffer=new char[20]; intruduce caracteres erroneos sobrepasando
 	//la capacidad del buffer dependiendo la computadora.
@@ -162,7 +162,7 @@ string GeneroFile::ObtenerGenero(int index)
 	}
 
 	generos.clear();
-	cout << "se pudo leer";
+
 	//Este codifgo se usa para leer por bloques dado, algunos algoritmos generan errores de escritura entre computadores
 	//Este es el metodo mas seguro pero menos eficiente....usar char * buffer=new char[20]; intruduce caracteres erroneos sobrepasando
 	//la capacidad del buffer dependiendo la computadora.
