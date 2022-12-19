@@ -2,8 +2,13 @@
 #ifndef PLAYLISTFILE_H
 #define PLAYLISTFILE_H
 #include"Playlist.h"
+#include <boost/filesystem.hpp>
+#include <filesystem>
+
 #include "SongInfo.h"
 #include "TDAArchivo.h"
+
+using namespace boost::filesystem;
 class PlaylistFile:public Playlist,public TDAArchivo
 {
 
@@ -18,8 +23,10 @@ public:
 
 	~PlaylistFile();
 	void CrearPlaylist(string Nombre);
-	void AgregarCanciones(string FileDir);
+	void AgregarCanciones();
+	void MostrarPlaylists();
 
+	string ObtenerPlayListDir(int index);
 
 	void escribir() override;
 	void leer() override;

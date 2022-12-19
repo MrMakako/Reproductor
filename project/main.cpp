@@ -3,6 +3,7 @@
 #include "GeneroFile.h"
 
 #include "SongInfoFile.h"
+#include "PlaylistFile.h"
 using namespace std;
 
 
@@ -18,6 +19,10 @@ int main() {
     //Principales accesos a los registros
     GeneroFile* regisGenero = new GeneroFile("Gen.gn");
     SongInfoFile* regisSong = new SongInfoFile();
+    PlaylistFile* regisPlaylist = new PlaylistFile();
+    regisPlaylist->escribir();
+    regisPlaylist->cerrar();
+    
     do {
         cout << "Reproductor de musica" << endl;
         cout << "1. Generos" << endl;
@@ -135,22 +140,33 @@ int main() {
             cout << "Ingrese una opcion: ";
             cin >> opcion;
             switch (opcion) {
-            case 1:
+            case 1: {
                 cout << "Agregar playlist" << endl;
-                break;
-            case 2:
+                string nombre;
+                cout << "Nombre>>";
+                cin >> nombre;
+                regisPlaylist->CrearPlaylist(nombre);
+                break; 
+            }
+            case 2: {
                 cout << "Agregar cancion" << endl;
+                regisPlaylist->AgregarCanciones();
                 break;
-            case 3:
+            }
+            case 3: {
                 cout << "Regresando" << endl;
                 break;
-            default:
+            }
+            default: {
                 cout << "Opcion invalida" << endl;
                 break;
+            }
             }
             break;
         case 4:
             cout << "Reproduciendo" << endl;
+            //Aqui hay que mostrar las playlist 
+
             break;
         case 5:
             cout << "Saliendo" << endl;
